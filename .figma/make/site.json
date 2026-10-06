@@ -1,0 +1,10 @@
+{
+  "description": "Creates romantic animations celebrating the beauty of brown eyes, offering users a heartfelt visual experience to express love and admiration.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

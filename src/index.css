@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap");
+@import "tailwindcss";
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #3b241c;
+  background: #f4ede3;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.font-serif {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+.painted-eye {
+  transform: scale(1.035);
+  filter: saturate(0.9) contrast(1.03) sepia(0.06);
+  animation: living-canvas 9s ease-in-out infinite alternate;
+}
+
+.canvas-grain {
+  background-image:
+    linear-gradient(92deg, rgb(255 255 255 / 5%) 1px, transparent 1px),
+    linear-gradient(rgb(70 39 27 / 4%) 1px, transparent 1px);
+  background-size: 4px 4px, 5px 5px;
+  mix-blend-mode: soft-light;
+  opacity: 0.75;
+}
+
+.eye-glint {
+  animation: glint 4.8s ease-in-out infinite;
+}
+
+.float-heart {
+  animation: float 4s ease-in-out infinite;
+}
+
+.float-heart-delayed {
+  animation: float 4.7s 0.8s ease-in-out infinite;
+}
+
+@keyframes living-canvas {
+  from {
+    transform: scale(1.035);
+  }
+  to {
+    transform: scale(1.065) translateY(-0.6%);
+  }
+}
+
+@keyframes glint {
+  0%,
+  68%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.7);
+  }
+  76% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(6deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
